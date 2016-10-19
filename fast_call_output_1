@@ -1,0 +1,52 @@
+	.file	"fastcall.c"
+	.text
+	.globl	_bar1
+	.def	_bar1;	.scl	2;	.type	32;	.endef
+_bar1:
+LFB0:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$24, %esp
+	movl	$102, 4(%esp)
+	movl	$101, (%esp)
+	movl	$100, %edx
+	movl	$99, %ecx
+	call	@foo1@16
+	subl	$8, %esp
+	nop
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+LFE0:
+	.globl	_bar2
+	.def	_bar2;	.scl	2;	.type	32;	.endef
+_bar2:
+LFB1:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$24, %esp
+	movl	$92, 12(%esp)
+	movl	$91, 8(%esp)
+	movl	$90, 4(%esp)
+	movl	$89, (%esp)
+	call	_foo2
+	nop
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+LFE1:
+	.ident	"GCC: (GNU) 5.3.0"
+	.def	@foo1@16;	.scl	2;	.type	32;	.endef
+	.def	_foo2;	.scl	2;	.type	32;	.endef
