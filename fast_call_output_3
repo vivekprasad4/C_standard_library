@@ -1,0 +1,38 @@
+	.cpu arm7tdmi
+	.fpu softvfp
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
+	.eabi_attribute 24, 1
+	.eabi_attribute 25, 1
+	.eabi_attribute 26, 1
+	.eabi_attribute 30, 6
+	.eabi_attribute 34, 0
+	.eabi_attribute 18, 4
+	.file	"fastcall.c"
+	.text
+	.align	2
+	.global	bar2
+	.type	bar2, %function
+bar2:
+	@ Function supports interworking.
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 1, uses_anonymous_args = 0
+	stmfd	sp!, {fp, lr}
+	add	fp, sp, #4
+	sub	sp, sp, #8
+	mov	r3, #12
+	str	r3, [sp]
+	mov	r3, #13
+	str	r3, [sp, #4]
+	mov	r0, #89
+	mov	r1, #90
+	mov	r2, #91
+	mov	r3, #92
+	bl	foo2
+	sub	sp, fp, #4
+	@ sp needed
+	ldmfd	sp!, {fp, lr}
+	bx	lr
+	.size	bar2, .-bar2
+	.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-branch revision 211358]"
