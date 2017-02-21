@@ -54,14 +54,14 @@ typedef enum {
     enEPCFLogDeviceConsole = 0, /**< None Log                           */
     enEPCFLogDeviceFile,        /**< Live Log                           */
     enEPCFLogLevelAdapter,      /**< Info Log                           */
-    enEPCFLogDeviceMax           /**< Used for Boundry Checking of Enum  */
+    enEPCFLogDeviceMax          /**< Used for Boundry Checking of Enum  */
 } EnEPCFDebugDeviceType_t;
 
 /** @brief Logger flags */
 typedef enum {
     enEPCFLogTimeEnable = 0,    /**< Time Logging Enable                */
-    enEPCFLogTimeDisable,        /**< Time Logging Disable               */
-    enEPCFLogTimeMax           /**< Used for Boundry Checking of Enum  */
+    enEPCFLogTimeDisable,       /**< Time Logging Disable               */
+    enEPCFLogTimeMax            /**< Used for Boundry Checking of Enum  */
 } EnEPCFDebugLogTime_t;
 
 /** @brief File Logger configuration structure.
